@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <title>Weight-Loss-Report-Maker</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="head-text"></div>
+    </header>
+
+    <div class="body">
+        <div class="box">
+            <h1 class="h-one">GENERATE THE REPORT</h1>
+            <p class="para">Enter your details below to get your weight loss report.
+                All inputs are required to make the report. Use whole numbers only.</p>
+            <p class="para">Enter your height in feet.</p>
+            <input type="number" class="feet" placeholder="Enter Feet"></input>
+            <p class="para">Enter your remaining inches.</p>
+            <input type="number" class="inches" placeholder="Enter Inches"></input>
+            <p class="para">Enter your weight in kg.</p>
+            <input type="number" class="weight" placeholder="Enter Weight In KG"></input>
+            <p class="para">Enter your age.</p>
+            <input type="number" class="age" placeholder="Enter Age"></input>
+            <p class="para">Enter your gender.</p>
+            <ul class="gender-picker">
+                <li><label><input type="radio" class="gender" name="gender" id="one" value="male"> Male</label></li>
+                <li><label><input type="radio" class="gender" name="gender" id="two" value="female"> Female</label></li>
+            </ul>
+            <p class="para">Enter your activity level.</p>
+            <ul class="activity-picker">
+                <li><label><input type="radio" class="activity" name="activity" id="three" value="low"> Low activity</label></li>
+                <li><label><input type="radio" class="activity" name="activity" id="four" value="moderate"> Moderate
+                        activity</label></li>
+                <li><label><input type="radio" class="activity" name="activity" id="five" value="high"> High activity</label></li>
+            </ul>
+            <p class="para">Enter how much calory deficit you want. Calory Deficit is the calory intake below the body requirement</p>
+            <input type="number" class="deficit" placeholder="Enter Calory Deficit"></input>
+            <p class="para">Enter the number of steps you can walk daily. Atleast 2000 everyday is recomended</p>
+            <input type="number" class="steps" placeholder="Enter Steps"></input>
+            <button type="submit" class="submit">Generate Report</button>
+        </div>
+        <div class="report">
+        </div>
+    </div>
+    <footer class="footer">
+        <a href="index.html" class="footer-btn">Home</a>
+    </footer>    
+</body>
+<style>
+    .header {
+        width: 100vw;
+        height: 75px;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .head-text {
+        background: linear-gradient(110deg, rgb(0, 255, 255), white, rgb(0, 255, 255));
+        background-clip: text;
+        color: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }   
+    .body{
+        min-width:100vw;
+        min-height:100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background: linear-gradient(180deg, black,blue, grey,rgb(255, 94, 0));
+    }
+    .box{
+        display:flex;
+        border-radius: 30px;
+        text-align: center;
+        border:2px solid black;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:350px;
+        height:700px;
+        margin: 20px;
+        text-align: center;
+        font-size: xx-small;
+        border: 2px solid white;
+    }
+    .report{
+        border-radius: 5px;
+        border:2px solid white;
+        width:350px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height:500px;
+        box-shadow: inset 12px 12px 12px rgb(141, 141, 140) ;
+        background: white;
+        margin-bottom: 100px;
+    }
+    .box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.box li label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 0;
+    padding-right: 10px;
+    color: white;
+    cursor: pointer;
+}
+    .h-one{
+        background: linear-gradient(110deg, rgb(0, 255, 255), white, rgb(0, 255, 255));
+        background-clip: text;
+        color: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 5px;
+    }
+    .para{
+        font-size: 10px;
+        background: linear-gradient(110deg, rgb(0, 255, 255), white, rgb(0, 255, 255));
+        background-clip: text;
+        color: transparent;
+        font-weight: bold;
+        width:250px;
+        font-family: sans-serif;
+        margin-bottom: 5px;  
+    }
+    .feet, .inches, .weight, .age, .deficit, .steps{
+        color:#9773eb;
+        font-weight: bold;
+        width:200px;
+        margin:5px auto;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-size: 10px;
+        height: 20px;
+        text-align: center;
+        font-size: 12px;
+        box-shadow: inset 5px 5px 5px rgb(141, 141, 140);
+        cursor: pointer;
+    }
+    ::placeholder{
+        color:rgb(151, 115, 235);
+        font-weight: bold;
+    }
+    .submit{
+         width:150px;
+        margin:5px auto;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-size: 15px;
+        height: 30px;        
+        margin-top: 20px;
+        text-align: center;
+        color: #6f27f7;
+        background:linear-gradient(140deg,#0084ff, #00ffff, white, #00ffff, #0084ff);
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .footer{
+        width:100vw;
+        height:100px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:rgb(250, 206, 250)
+    }
+    .footer-btn{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width:80px;
+        height:50px;
+        margin:15px 20px;
+        cursor: pointer;
+        background:linear-gradient(140deg,#0084ff, #00ffff, white, #00ffff, #0084ff);
+        border:none;
+        border-radius: 8px;
+        color: #6f27f7;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+<script>
+    var typed = new Typed(".head-text", {
+        strings: ["CREATED BY FAIQ ALI"],
+        typeSpeed: 200,
+        backSpeed: 50,
+        showCursor: false,
+        loop: true
+    });
+
+    // Adding Event Listener
+
+    let submit = document.querySelector(".submit");
+    submit.addEventListener("click", () => {
+
+        // Declaring The Variables To Take The Input Values And Read Them
+
+        let feet = document.querySelector(".feet");
+        let feetValue = feet.value;
+        let feetInt = Number.parseInt(feetValue, 10);
+
+        let inches = document.querySelector(".inches");
+        let inchesValue = inches.value;
+        let inchInt = Number.parseInt(inchesValue, 10);
+
+        let weight = document.querySelector(".weight");
+        let weightValue = weight.value;
+        let weightInt = Number.parseInt(weightValue, 10);
+
+        // Declaring The Variable Declination For Calory Deficit
+
+        let declination = document.querySelector(".deficit");
+        let deficitValue = declination.value;
+        let deficitInt = Number.parseInt(deficitValue, 10);
+
+        let age = document.querySelector(".age");
+        let ageValue = age.value;
+        let ageInt = Number.parseInt(ageValue, 10);
+
+        let steps = document.querySelector(".steps");
+        let stepsValue = steps.value;
+        let stepsInt = Number.parseInt(stepsValue, 10);
+
+        let gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+
+        let activity = document.querySelector('input[name="activity"]:checked')?.value;
+
+        let centimeter = (feetInt * 30.48) + (inchInt * 2.54);
+
+        let basicMetabolicRate = (weightInt * 10) + (6.25 * centimeter) - (5 * ageInt);
+
+        // Function Declaration
+
+        function metabolism(basicMetabolicRate) {
+
+            let metabolismVar;
+
+            if (gender === "male") {
+                metabolismVar = basicMetabolicRate + 5;
+                return metabolismVar;
+            }
+            else if (gender === "female") {
+                metabolismVar = basicMetabolicRate - 161;
+                return metabolismVar;
+            }
+        }
+
+        function activityfactor(metabolismVar) {
+
+            let factor = metabolismVar;
+            let factorValue;
+            if (activity === "low") {
+                factorValue = factor * 1.2;
+                return factorValue;
+            }
+            else if (activity === "moderate") {
+                factorValue = factor * 1.55;
+                return factorValue;
+            }
+            else if (activity === "high") {
+                factorValue = factor * 1.725;
+                return factorValue;
+            }
+        }
+
+        function deficit(deficitInt) {
+
+            let weightLossDaysByDeficit = Math.round(7700 / deficitInt) + 1;
+
+            return weightLossDaysByDeficit;
+        }
+
+        function consumption (deficitInt, factorValue) {
+
+            let lowerConsumption = factorValue - deficitInt;
+
+            return lowerConsumption;
+        }
+
+
+        function energyUsage(weightInt, stepsInt) {
+
+            let energyRequired = (weightInt * 0.0005) * stepsInt;
+
+            return energyRequired;
+        }
+
+        function walking(energyRequired) {
+
+            let weightLossDaysByWalk = Math.round(7700 / energyRequired) + 1;
+
+            return weightLossDaysByWalk;
+        }
+
+        function deficitPlusWalk(deficitInt, energyRequired) {
+
+            let combineDeficit = energyRequired + deficitInt;
+
+            let combineDeficitValue = Math.round(7700 / combineDeficit) + 1; 
+
+            return combineDeficitValue;
+        }
+
+        // Function Calling
+
+        const humanMetabolism = metabolism (basicMetabolicRate);
+
+        const humanActivity = activityfactor (humanMetabolism);
+
+        const caloryDeficit = deficit (deficitInt);
+
+        const regularConsumtion = consumption(deficitInt, humanActivity);
+
+        const energyNeed = energyUsage (weightInt, stepsInt);
+
+        const walk = walking (energyNeed);
+
+        const bonusDeficit = deficitPlusWalk (deficitInt, energyNeed);
+
+        // declaring The Variables To Show The Result
+
+        let report = document.querySelector(".report");
+
+        let html = `
+        <h1 class="h">REPORT</h1>
+        <p class="p">NOTE:-  This is just a closed estimate report, one day has added to each result . The actual results may vary by genetics.</p>
+        <p class="p">Your daily calory requirement is ${humanActivity}kcal.</p>     
+        <p class="p">You can lose your 1kg weight in ${caloryDeficit} days. If you lower your calory intake by ${deficitInt}kcal.</p>   
+        <p class="p">You can lose your 1kg weight in ${walk} days. If you walk ${stepsInt} steps every day.</p>
+        <p class="p"> But you can lose your 1kg weight in ${bonusDeficit} days. If you walk ${stepsInt} steps every day and lower your calory intake to ${regularConsumtion}kcal from ${humanActivity}kcal through your calory deficit ${deficitInt}kcal a day.</p>  
+        <h1 class="h"> CREATED BY <span class="s">FAIQ ALI</span></h1>
+        <style>
+        .h{
+        font-size: 27px;
+        color: rgb(150, 90, 209);
+        font-weight:bold;
+        } 
+        .p{
+        font-size:15px;
+        color:#821ee7;
+        width:320px;
+        margin:auto;
+        font-weight:bold;
+        }  
+        .s{
+        color:#9773eb;}     
+        </style>
+        `;
+
+        report.innerHTML=html;
+
+    })
+</script>
+
+</html>
