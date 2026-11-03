@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight-Journey-Planner</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body class="body">
+    <!-- #673de6   #613bee -->
+    <nav class="nav">
+        <ul class="item">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+        <ul class="item">
+            <li><a href="gain.html">Gain</a></li>
+        </ul>
+        <ul class="item">
+            <li><a href="loss.html">Loss</a></li>
+        </ul>
+    </nav>
+    <div class="intro">
+        <div class="card-one">
+            <h1 class="h-one"></h1>
+            <h2 class="h-two">Created By <span class="span">FAIQ ALI</span></h2>
+            <p class="p-one">A place where you can test background colors with gradients.</p>
+            <h3 class="h-three">About Me</h3>
+            <a class="button" href="https://faiqali-portfolio.vercel.app"
+   target="_blank" rel="noopener noreferrer">My Website</a>
+            <a class="button" href="https://github.com/faiqali-max"
+   target="_blank" rel="noopener noreferrer">My Github</a>
+        </div>
+        <div class="card-two">
+            <div class="cardone">
+                <h2 class="h-three"> WEIGHT GAIN</h2>
+                <p class="p-two">Enter your details, how much weight you’d like to gain, and your target number of days. The report will provide an estimate based on the information you enter.</p>
+                <a class="button" href="gain.html">Test It</a>
+            </div>
+            <div class="cardtwo">
+                <h2 class="h-three">WEIGHT LOSS</h2>
+                <p class="p-two">Enter your details, the daily calorie deficit you choose, and how many steps you can walk each day. The report will estimate your progress; actual results can vary from person to person.</p>
+                    <a class="button" href="loss.html">Test It</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="footer"></footer>
+</body>
+<style>
+    html {
+        min-height: 100%;
+        background: linear-gradient(
+            180deg,
+            rgb(48, 46, 46),
+            blue,
+            grey,
+            rgb(250, 100, 0)
+        ) fixed;
+        font-family: sans-serif;
+    }
+
+    .body{
+        margin: 0;
+        background: transparent;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    .intro{
+        display:grid;
+        place-items: center;
+        margin-top:100px;
+    }
+
+    .nav{
+        margin:auto;
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        gap:10px;
+        background: linear-gradient(140deg, rgba(0, 255, 255,0.7), rgba(72, 72, 247, 0.7), rgba(0, 0, 0,0.7), rgba(72, 72, 247,0.7), rgba(0, 255, 255,0.7));
+        width:400px;
+        border-radius: 0px 0px 25px 25px;
+    }
+
+    .item {
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+    }
+
+    .item li {
+        list-style: none;
+    }
+
+    .item a {
+        text-decoration: none;
+        padding-left: 0;
+        font-weight: bold;
+        box-sizing: border-box;
+        background:linear-gradient(110deg,#00ffff, #00a2ff, white, #00a2ff, #00ffff);
+        background-clip:text ;
+        color: transparent;
+        margin-bottom: 10px;
+        font-size: large;
+        border-radius: 50px;
+    }
+
+    .item li :hover{
+        color:white;
+    }
+
+    .card-one{
+        width:380px;
+        height:400px;
+        background: linear-gradient(140deg, rgba(0, 255, 255,0.7), rgba(72, 72, 247, 0.7), rgba(0, 0, 0,0.7), rgba(72, 72, 247,0.7), rgba(0, 255, 255,0.7));
+        text-align: center;
+        color:white;
+        border-radius: 50px;
+        padding-top: 10%;
+    }
+
+    .h-one{
+        font-size:28px;
+        margin-top:15px;
+        text-align: center;
+        width:380px;
+        height:100px;
+        margin: auto;
+        background:linear-gradient(140deg,#00ffff, #00a2ff, white, #00a2ff, #00ffff);
+        background-clip:text ;
+        color: transparent;
+        margin-bottom: 10px;
+    }
+
+    .p-one{
+        max-width: 80%;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+    .h-two{
+        font-size:32px;
+        margin-top: 5px;
+        background:linear-gradient(110deg,#00ffff, #00a2ff, white, #00a2ff, #00ffff);
+        background-clip:text ;
+        color: transparent;
+        margin-bottom: 10px;
+    }
+
+    .h-three{
+        font-size: 28px;
+        background:linear-gradient(140deg,#00ffff, #00a2ff, white, #00a2ff, #00ffff);
+        background-clip:text ;
+        color: transparent;
+        margin-bottom: 10px;
+    }
+
+    .button{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width:80px;
+        height:50px;
+        margin:15px 20px;
+        cursor: pointer;
+        background:linear-gradient(140deg,#0084ff, #00ffff, white, #00ffff, #0084ff);
+        border:none;
+        border-radius: 8px;
+        color: #6f27f7;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .card-two{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        gap:20px;
+        margin-top:50px;
+        margin-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    .cardone, .cardtwo, .cardthree{
+        width:350px;
+        height: 400px;
+        color:white;
+        margin:0;
+        background: linear-gradient(140deg, rgba(0, 255, 255,0.7), rgba(72, 72, 247, 0.7), rgba(0, 0, 0,0.7), rgba(72, 72, 247,0.7), rgba(0, 255, 255,0.7));
+        padding:3px;
+        text-align: center;
+        border-radius:30px;
+        overflow: inherit;
+    }
+
+    .p-two{
+        height:150px;
+        width:320px;
+        margin: auto;
+    }
+    .footer{
+        width:100vw;
+        height:80px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color:white;
+    }
+</style>
+<script>
+     var typed = new Typed(".h-one", {
+      strings: ["WELCOME","TO","WEIGHT JOURNEY PLANNER"],
+      typeSpeed: 200,
+      backSpeed: 50,
+      showCursor: false,  
+      loop: true
+    });
+    var typed = new Typed(".footer", {
+      strings: ["Created By Faiq Ali","A Self Taught Developer"],
+      typeSpeed: 200,
+      backSpeed: 50,
+      showCursor: false,  
+      loop: true
+    });
+
+</script>
+
+</html>
