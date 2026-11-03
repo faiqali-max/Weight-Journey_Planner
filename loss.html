@@ -44,6 +44,7 @@
             <p class="para">Enter the number of steps you can walk daily. Atleast 2000 everyday is recomended</p>
             <input type="number" class="steps" placeholder="Enter Steps"></input>
             <button type="submit" class="submit">Generate Report</button>
+            <button  class="submit" id="download">Download Report</button>
         </div>
         <div class="report">
         </div>
@@ -374,13 +375,17 @@
 
         report.innerHTML=html;
 
-        // Downloading The Report 
+    });
+
+    // Downloading The Report
+
+     let download = document.querySelector("#download");
+    download.addEventListener("click", () => {
 
         let element = document.querySelector('.report');
-
         html2pdf().from(element).save('report.pdf');
-
     })
+   
 </script>
 
 </html>
