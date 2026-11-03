@@ -38,8 +38,8 @@
                         activity</label></li>
                 <li><label><input type="radio" class="activity" name="activity" id="five" value="high"> High activity</label></li>
             </ul>
-            <p class="para">Enter how much calory deficit you want. Calory Deficit is the calory intake below the body requirement</p>
-            <input type="number" class="deficit" placeholder="Enter Calory Deficit"></input>
+            <p class="para">Enter how much calorie deficit you want.</p>
+            <input type="number" class="deficit" placeholder="Enter Calorie Deficit"></input>
             <p class="para">Enter the number of steps you can walk daily. Atleast 2000 everyday is recomended</p>
             <input type="number" class="steps" placeholder="Enter Steps"></input>
             <button type="submit" class="submit">Generate Report</button>
@@ -348,10 +348,10 @@
         let html = `
         <h1 class="h">REPORT</h1>
         <p class="p">NOTE:-  This is just a closed estimate report, one day has added to each result . The actual results may vary by genetics.</p>
-        <p class="p">Your daily calory requirement is ${humanActivity}kcal.</p>     
-        <p class="p">You can lose your 1kg weight in ${caloryDeficit} days. If you lower your calory intake by ${deficitInt}kcal.</p>   
+        <p class="p">Your daily calorie requirement is ${humanActivity}kcal.</p>     
+        <p class="p">You can lose your 1kg weight in ${caloryDeficit} days. If you lower your calorie intake by ${deficitInt}kcal.</p>   
         <p class="p">You can lose your 1kg weight in ${walk} days. If you walk ${stepsInt} steps every day.</p>
-        <p class="p"> But you can lose your 1kg weight in ${bonusDeficit} days. If you walk ${stepsInt} steps every day and lower your calory intake to ${regularConsumtion}kcal from ${humanActivity}kcal through your calory deficit ${deficitInt}kcal a day.</p>  
+        <p class="p"> But you can lose your 1kg weight in ${bonusDeficit} days. If you walk ${stepsInt} steps every day and lower your calorie intake to ${regularConsumtion}kcal from ${humanActivity}kcal through your calorie deficit ${deficitInt}kcal a day.</p>  
         <h1 class="h"> CREATED BY <span class="s">FAIQ ALI</span></h1>
         <style>
         .h{
