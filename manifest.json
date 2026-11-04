@@ -7,14 +7,16 @@
   "theme_color": "#827ee3",
   "icons": [
     {
-  "src": "folder/fev.png",
-  "sizes": "192x192",
-  "type": "image/png"
-},
-{
-  "src": "folder/fev.png",
-  "sizes": "512x512",
-  "type": "image/png"
-}
+      "src": "/folder/fev.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/folder/fev.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
