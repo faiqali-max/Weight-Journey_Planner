@@ -51,8 +51,8 @@
     </div>
     <footer class="footer"></footer>
 
-<div id="pwa-alert" style="display: none; position: fixed; bottom: 20px; left: 20px; right: 20px; background: #222; color: #fff; padding: 15px 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-  <span>Install Weight Planner for a better experience!</span>
+<div id="pwa-alert" style="display: none; position: fixed; bottom: 20px; left: 20px; right: 20px; background: #222; color: #fff; padding: 15px 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; justify-content: space-between; align-items: center; font-family: sans-serif;">
+  <span id="pwa-text">Install Weight Planner for a better experience!</span>
   <div>
     <button id="pwa-install-btn" style="background: #827ee3; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-right: 8px;">Install</button>
     <button id="pwa-close-btn" style="background: transparent; color: #aaa; border: none; font-size: 16px; cursor: pointer;">✕</button>
@@ -245,30 +245,45 @@
     });
   };
 
-    let deferredPrompt;
+  let deferredPrompt;
   const alertBox = document.getElementById('pwa-alert');
   const installBtn = document.getElementById('pwa-install-btn');
   const closeBtn = document.getElementById('pwa-close-btn');
+  const pwaText = document.getElementById('pwa-text');
 
-  // Check if already installed or previously dismissed in this session
+  // Hide permanently if already installed or dismissed previously
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  const isDismissed = localStorage.getItem('pwa_dismissed');
+  const isInstalled = localStorage.getItem('pwa_installed') === 'true';
+  const isDismissed = localStorage.getItem('pwa_dismissed') === 'true';
 
-  if (!isStandalone && !isDismissed) {
-    // Listen for installability
+  if (isStandalone || isInstalled || isDismissed) {
+    alertBox.style.display = 'none';
+  } else {
+    // Listen for desktop/supported prompt event
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      alertBox.style.display = 'flex'; // Show alert banner
+      alertBox.style.display = 'flex';
     });
+
+    // Fallback for Mobile: If mobile doesn't fire beforeinstallprompt, 
+    // show a friendly hint after 3 seconds explaining how to install via browser menu
+    setTimeout(() => {
+      if (alertBox.style.display === 'none' && !localStorage.getItem('pwa_installed')) {
+        pwaText.innerText = "Tap your browser menu (⋮) and select 'Install app'";
+        installBtn.style.display = 'none'; // Hide install button since mobile menu handles it
+        alertBox.style.display = 'flex';
+      }
+    }, 3000);
   }
 
-  // Handle Install Click
+  // Handle Install Click (PC)
   installBtn.addEventListener('click', async () => {
     if (deferredPrompt) {
       deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       if (outcome === 'accepted') {
+        localStorage.setItem('pwa_installed', 'true');
         alertBox.style.display = 'none';
       }
       deferredPrompt = null;
@@ -278,16 +293,15 @@
   // Handle Close/Dismiss Click
   closeBtn.addEventListener('click', () => {
     alertBox.style.display = 'none';
-    localStorage.setItem('pwa_dismissed', 'true'); // Keeps it hidden if user closes it
+    localStorage.setItem('pwa_dismissed', 'true');
   });
 
-  // Hide permanently once installed
+  // Automatically save state once installation completes
   window.addEventListener('appinstalled', () => {
+    localStorage.setItem('pwa_installed', 'true');
     alertBox.style.display = 'none';
-    localStorage.setItem('pwa_dismissed', 'true');
     deferredPrompt = null;
   });
-
 
 </script>
 
