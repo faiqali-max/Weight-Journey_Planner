@@ -404,7 +404,51 @@
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js');
     });
+  };
+
+    
+    let deferredPrompt;
+  const alertBox = document.getElementById('pwa-alert');
+  const installBtn = document.getElementById('pwa-install-btn');
+  const closeBtn = document.getElementById('pwa-close-btn');
+
+  // Check if already installed or previously dismissed in this session
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isDismissed = localStorage.getItem('pwa_dismissed');
+
+  if (!isStandalone && !isDismissed) {
+    // Listen for installability
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      alertBox.style.display = 'flex'; // Show alert banner
+    });
   }
+
+  // Handle Install Click
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        alertBox.style.display = 'none';
+      }
+      deferredPrompt = null;
+    }
+  });
+
+  // Handle Close/Dismiss Click
+  closeBtn.addEventListener('click', () => {
+    alertBox.style.display = 'none';
+    localStorage.setItem('pwa_dismissed', 'true'); // Keeps it hidden if user closes it
+  });
+
+  // Hide permanently once installed
+  window.addEventListener('appinstalled', () => {
+    alertBox.style.display = 'none';
+    localStorage.setItem('pwa_dismissed', 'true');
+    deferredPrompt = null;
+  });
    
 </script>
 
